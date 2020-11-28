@@ -1,10 +1,4 @@
-﻿################################################################################
-# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
-################################################################################
-
-/mpi_lab/.vs/mpi_lab/v16
-/mpi_lab/x64/Debug
-/mpi_lab/mpi_lab.vcxproj.user
-/mpi_lab/mpi_lab.vcxproj.filters
-/mpi_lab/mpi_lab.vcxproj
-/mpi_lab/mpi_lab.sln
+﻿.vs/
+*.vcxproj
+*.sln
+venv
