@@ -71,7 +71,7 @@ void save_data(ofstream& file, string filename, int size, double* input, double*
 {
 	double time_start = 0.0, time_end = 0.0;
 
-	file.open(filename);
+	file.open(filename, fstream::app);
 	if (!file.is_open()) {
 		cout << endl << "file didn't open" << endl;
 	}
