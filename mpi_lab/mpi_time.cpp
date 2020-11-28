@@ -8,7 +8,7 @@ using namespace std;
 
 const int MAX_ARRAY_SIZE = 1024;
 
-// Функция, генерирующая случайное действительное число от min до max
+// Г”ГіГ­ГЄГ¶ГЁГї, ГЈГҐГ­ГҐГ°ГЁГ°ГіГѕГ№Г Гї Г±Г«ГіГ·Г Г©Г­Г®ГҐ Г¤ГҐГ©Г±ГІГўГЁГІГҐГ«ГјГ­Г®ГҐ Г·ГЁГ±Г«Г® Г®ГІ min Г¤Г® max
 double Random(double min, double max)
 {
 	srand(time(0));
@@ -91,9 +91,7 @@ void save_data(ofstream& file, string filename, int size, double* input, double*
 			}
 			MPI_Barrier(MPI_COMM_WORLD);
 			time_end = MPI_Wtime();
-			if (world_rank <= world_size) {
-				file << "Processor - " << world_rank << "|" << "Block size - " <<  i << "|" << "Num processors: " << world_size + 1 << "|" << "Time - " << time_end - time_start << endl;
-			}
+			file << "Processor: " << world_rank << "|" << "Block size: " <<  i << "|" << "Num processors: " << world_size + 1 << "|" << "Time: " << time_end - time_start << endl;
 		}
 	}
 
