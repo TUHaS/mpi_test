@@ -55,9 +55,8 @@ int main(int argc, char* argv[])
 	ofstream file;
 	double* input = new double[MAX_ARRAY_SIZE] {0};
 	double* output = new double[MAX_ARRAY_SIZE] {0};
-	string filename = "time_" + to_string(world_rank) + ".txt";
 	for (short int nums_proc = 1; nums_proc < world_size; nums_proc++) {
-		save_data(file, filename, MAX_ARRAY_SIZE, input, output, nums_proc, world_rank, tag, status);
+		save_data(file, "time.txt", MAX_ARRAY_SIZE, input, output, nums_proc, world_rank, tag, status);
 	}
 
 	delete[] input;
@@ -72,12 +71,10 @@ void save_data(ofstream& file, string filename, int size, double* input, double*
 	double time_start = 0.0, time_end = 0.0;
 
 	file.open(filename);
-	if (!file.is_open())
-	{
+	if (!file.is_open()) {
 		cout << endl << "file didn't open" << endl;
 	}
-	else
-	{
+	else {
 		for (int i = 1; i < size + 1; i++) {
 			MPI_Barrier(MPI_COMM_WORLD);
 			// to/from left
@@ -93,9 +90,13 @@ void save_data(ofstream& file, string filename, int size, double* input, double*
 			}
 			MPI_Barrier(MPI_COMM_WORLD);
 			time_end = MPI_Wtime();
-			if (world_rank <= world_size) {
-				file << "Processor - " << world_rank << "|" << "Block size - " << i << "|" << "Time - " << time_end - time_start << endl;
+			for (int j = 0; j <= world_size; j++) {
+				if (world_rank == j) {
+					file << "Processor - " << world_rank << "|" << "Block size - " << i << "|" << "Time - " << time_end - time_start << endl;
+				}
+				MPI_Barrier(MPI_COMM_WORLD);
 			}
+			
 		}
 	}
 
