@@ -92,7 +92,7 @@ void save_data(ofstream& file, string filename, int size, double* input, double*
 			MPI_Barrier(MPI_COMM_WORLD);
 			time_end = MPI_Wtime();
 			if (world_rank <= world_size) {
-				file << "Processor - " << world_rank << "|" << "Block size - " << i << "|" << "Time - " << time_end - time_start << endl;
+				file << "Processor - " << world_rank << "|" << "Block size - " <<  i << "|" << "Num processors: " << world_size + 1 << "|" << "Time - " << time_end - time_start << endl;
 			}
 		}
 	}
