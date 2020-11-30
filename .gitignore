@@ -2,3 +2,6 @@
 *.vcxproj
 *.sln
 venv
+/mpi_lab/mpi_lab.vcxproj.user
+/mpi_lab/mpi_lab.vcxproj.filters
+/mpi_lab/x64/Debug

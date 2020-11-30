@@ -6,7 +6,7 @@
 
 using namespace std;
 
-const int MAX_ARRAY_SIZE = 1024;
+const int MAX_ARRAY_SIZE = 25000;
 
 // Ôóíêöèÿ, ãåíåðèðóþùàÿ ñëó÷àéíîå äåéñòâèòåëüíîå ÷èñëî îò min äî max
 double Random(double min, double max)
